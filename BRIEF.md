@@ -190,6 +190,8 @@ Frontend state: baseline loads on mount; running a simulation swaps tract colors
 
 ## 10. UI / design system (good UI is a requirement, not polish)
 
+**Design reference — Altius (added 2026-11-09, this overrides the generic palette guidance below where they conflict).** The chosen visual system is Altius, "molten embers on obsidian" (Refero Styles: https://styles.refero.design/style/227ff379-9b46-44fc-8ff1-37e0472239a6), paired with terminal-style panel chrome. Full design files are in this repo at `design/altius/`: `DESIGN.md`, `tokens.json`, `variables.css`, `theme.css` — use those tokens as the source of truth for color, type, and shape. Key adaptations for Isthmus: (1) fully dark always — cut Altius's light Vapor Peach/Linen sections, no light panels; (2) Flare Orange `#fa5838` / Molten Core `#631303` ember glow is rationed to access-losing tracts, Impact Queue thermal bars, and the Best Fix card (the single filled glowing surface); (3) panel numbers, IDs, and deltas in mono (Altius Fabrikatmono or a mono substitute), panel tightened to 16px card padding / 12px gaps; (4) the teal end of the Access Score scale stays a data color only, never a UI accent or gradient partner — the only gradient is Altius's single-hue orange peak-to-zero fade, on data bars only; (5) the demo's screenshot moment is the "ember flip": closing a route cross-fades a tract cluster from flat teal to glowing flare orange while the thermal strip and mono readout update in the same color.
+
 - Layout, desktop-first, single page: **full-screen map**, a slim top bar (wordmark "Isthmus", search box for stops/routes/scenario text, Method button), a **right panel ~380px** with three stacked sections: (1) Simulate controls, (2) Impact Queue, (3) Best Fix card. Compare view is a toggle that splits the panel and shows mini summary maps/table. Mobile: panel becomes a bottom sheet; map stays visible.
 - Color: dark basemap, near-black UI surfaces (`#0E1113`-family), paper-white text, ONE signal color for loss (a warm red/vermillion), one calm teal/green for healthy access. Tract fill = a 5-step sequential scale from teal (high access) to vermillion (low access / big drop), with a visible legend. **No purple/blue gradients. No generic SaaS blue.**
 - Type: a strong grotesque for headings (e.g. "Space Grotesk" or system grotesque), and a highly legible text face for panel copy (e.g. "Atkinson Hyperlegible", the face Vigil chose for arm's-length reading) — load from Google Fonts, no other fonts.
@@ -238,6 +240,7 @@ A fresh clone following only the README can: start PostGIS, run the four scripts
   README.md            -- pitch, demo steps, setup, screenshot
   BRIEF.md             -- this file
   CLAUDE.md            -- short working instructions for Claude Code
+  design/altius/       -- Altius design system: DESIGN.md, tokens.json, variables.css, theme.css (see §10)
   NOTES.md             -- decisions taken, spot-check results, known limits of the proxy model
   docker-compose.yml   -- Postgres 16 + PostGIS
   .env.example

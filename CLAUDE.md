@@ -13,6 +13,17 @@ Isthmus: a Madison, WI transit what-if simulator. Close a bus stop or route on a
 - FastAPI (Python 3.12) in `api/` — all scoring lives here, once, in `api/scoring.py`
 - Postgres 16 + PostGIS via `docker-compose.yml` — schema in `db/schema.sql` (BRIEF §7)
 
+## Design — Altius (read before any UI work)
+
+The visual system is **Altius** ("molten embers on obsidian", from Refero Styles). Its full files are in `design/altius/`: `DESIGN.md` (the reference — read it first), `tokens.json`, `variables.css`, `theme.css` (Tailwind v4 `@theme`). Use those tokens, do not invent a palette.
+
+Isthmus adaptations of Altius (these override the raw Altius files where they conflict):
+- The app is **fully dark, always**. Do NOT use Altius's light Vapor Peach / Linen sections — no light panels anywhere.
+- **Flare Orange `#fa5838` is rationed**: ember glow only on tracts that lost access, the Best Fix card (the one filled, glowing surface), and thermal-bar accents in the Impact Queue. Everything else is obsidian/cocoa surfaces, hairline borders, linen text.
+- The calm **teal for healthy access is a data color only** (tract fills / access readouts), never a UI accent, never in a gradient with orange. The only gradient allowed is Altius's single-hue orange peak-to-zero fade, on data bars only.
+- Panel chrome borrows terminal discipline: mono (Fabrikatmono per Altius, JetBrains Mono/IBM Plex Mono substitutes are fine) for all numbers, stop/route/tract IDs, and deltas. Tighten Altius's comfortable density in the ~380px panel: 16px card padding, 12px element gap.
+- BRIEF §10 still governs layout, copy, and accessibility; Altius governs color, type, glow, and shape.
+
 ## Commands
 
 ```bash
