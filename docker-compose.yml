@@ -1,0 +1,23 @@
+# Isthmus — local Postgres 16 + PostGIS (BRIEF §7/§8).
+# Usage: docker compose up -d   (schema in db/schema.sql is applied on first boot)
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: isthmus-db
+    environment:
+      POSTGRES_USER: isthmus
+      POSTGRES_PASSWORD: isthmus
+      POSTGRES_DB: isthmus
+    ports:
+      - "5432:5432"
+    volumes:
+      - isthmus-pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U isthmus -d isthmus"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  isthmus-pgdata:

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Altius tokens (design/altius/variables.css) + Isthmus adaptations (BRIEF §10):
+   fully dark always, Flare Orange rationed, teal is a data color only. */
+@theme {
+  --color-obsidian-ember: #190501;
+  --color-dark-cocoa: #340a01;
+  --color-molten-core: #631303;
+  --color-signal-red: #951c04;
+  --color-flare-orange: #fa5838;
+  --color-warm-blush: #fcac9c;
+  --color-vapor-peach: #feeae6;
+  --color-linen: #f7f6ff;
+  --color-warm-ash: #baadab;
+  --color-mist: #cccccc;
+  --color-carbon: #200903;
+  --color-panel: #260b03;
+  --color-data-teal: #14919b;
+  --font-sans: "Atkinson Hyperlegible", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html, body {
+  height: 100%;
+  background: #190501;
+  color: #f7f6ff;
+  font-family: var(--font-sans);
+}
+
+/* The one ember glow (Altius --shadow-lg), rationed per BRIEF §10. */
+.ember-glow {
+  box-shadow: rgb(99, 19, 3) 0px 0px 20px 0px inset, 0 0 24px rgba(250, 88, 56, 0.25);
+}
+.ember-button {
+  background: linear-gradient(180deg, #340a01, #631303);
+  box-shadow: rgb(99, 19, 3) 0px 0px 20px 0px inset;
+}
+.ember-button:hover { box-shadow: rgb(99, 19, 3) 0px 0px 20px 0px inset, 0 0 18px rgba(250, 88, 56, 0.35); }
+
+/* Thermal bar: the ONLY gradient in the app — single-hue orange, data bars only. */
+.thermal-bar {
+  background: linear-gradient(to top, rgba(250, 88, 56, 0), #fa5838);
+}
+.thermal-bar-h {
+  background: linear-gradient(to right, #fa5838, rgba(250, 88, 56, 0));
+}
+
+.hairline { border: 1px solid rgba(186, 173, 171, 0.22); }
+.hairline-b { border-bottom: 1px solid rgba(186, 173, 171, 0.18); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+.maplibregl-ctrl-attrib { background: rgba(25, 5, 1, 0.75) !important; color: #baadab !important; font-size: 10px; }
+.maplibregl-ctrl-attrib a { color: #baadab !important; }
