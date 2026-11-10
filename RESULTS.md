@@ -1,8 +1,9 @@
 # Isthmus — build results (Phases 0–5)
 
-Built 2026-11-09 in this workspace. **Nothing was pushed to GitHub** — the
-parent agent verifies and pushes. BRIEF.md, CLAUDE.md and design/ were not
-edited. README.md was updated with real setup instructions; NOTES.md records
+Built 2026-11-09 in this workspace. After independent verification
+(parent re-ran pytest: 12 passed), this snapshot was pushed to GitHub
+branch `implement/isthmus` on samyak-here/new-project, commit d52e430.
+BRIEF.md, CLAUDE.md and design/ were not edited. README.md was updated with real setup instructions; NOTES.md records
 decisions and deviations.
 
 ## File inventory (excluding node_modules/, .next/, .venv/, caches)
